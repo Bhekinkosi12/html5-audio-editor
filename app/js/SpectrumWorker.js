@@ -10,6 +10,7 @@ function SpectrumWorker()
         var tempR = timeDomainRealIn.slice(start, start + len);
         var tempI = (timeDomainImagIn === undefined) ? undefined : timeDomainImagIn.slice(start, start + len);
         ACFFT(tempR.length, false, tempR, tempI, realOut, imagOut);
+        
     };
     
     this.fromFrequencyDomain = function fromFrequencyDomain(freqDomainRealIn, freqDomainImagIn, realOut, imagOut)
@@ -18,6 +19,7 @@ function SpectrumWorker()
         
         ACFFT(freqDomainRealIn.length, true, freqDomainRealIn, freqDomainImagIn, realOut, imagOut);
     };
+    
     
     this.toAmplitudeSpectrum = function toAmplitudeSpectrum(timeDomainData, sampleRate, start, len, windowSize, windowFuncId)
     {
@@ -37,6 +39,7 @@ function SpectrumWorker()
         
         return result;
     };
+    
     
     this.toAmplitudeSpectrumFromAudioSequence = function toAmplitudeSpectrumFromAudioSequence(audioSequence, start, len, windowSize, windowFuncId)
     {
